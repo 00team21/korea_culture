@@ -6580,6 +6580,7 @@ fieldset:disabled .btn {
   display: block;
 }
 
+
 /* rtl:begin:ignore */
 .carousel-item-next:not(.carousel-item-start),
 .active.carousel-item-end {
@@ -6642,6 +6643,8 @@ fieldset:disabled .btn {
   border: 0;
   opacity: 0.5;
   transition: opacity 0.15s ease;
+  filter: invert(100%);
+  min-height: 816px;
 }
 
 @media (prefers-reduced-motion: reduce) {

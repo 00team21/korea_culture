@@ -19,6 +19,9 @@
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
         -->
         <script type="text/javascript" src="../prototype/js/loadHTML.js"></script>
+        <script type="text/javascript" src="../prototype/js/test.js"></script>
+        <script type="text/javascript" src="../prototype/json/술.json"></script>
+        <script type="text/javascript" src="../prototype/json/음식.json"></script>
     </head>
 
     <body>
@@ -111,7 +114,15 @@
                     </div>
                 </nav>
             </header>
-
+            <section style="padding: 0 0 100px 0;">
+              <form style="background-color: #19242ad2; bottom: 0; padding: 150px 250px;">
+                <p style="text-align: center;">
+                <button type="button" value="제출" onclick="load_f()">전통음식</button>
+                <button type="button" value="제출" onclick="load_d()">전통술</button>
+              </p>
+              <br>
+            <p id="식품명" style="padding: 0px 50px;"></p>
+            </section>
             <footer
                 style="background-color: #1f272b; bottom: 0; padding: 100px; text-align: center; ">
                 2021 공공데이터 청년인턴

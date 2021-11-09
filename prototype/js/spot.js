@@ -1,23 +1,33 @@
+window.onload = function(){
+    const choose1=document.getElementById("choose_nature");
+    choose1.addEventListener("click", function(){console.log("자연");showForm("자연")});
+    const choose2=document.getElementById("choose_shopping");
+    choose2.addEventListener("click", function(){console.log("쇼핑");showForm("쇼핑")});
+    const choose3=document.getElementById("choose_culture");
+    choose3.addEventListener("click", function(){console.log("문화");showForm("문화")});
+}
+
 function getSelectOption(){
+    console.log("실행뿝")
     const element=document.getElementById('city');
 
-    let s="<option>-선택-</option>"
+    let s="<option>-선택: 현재 서울만 검색 가능합니다.-</option>"
     +"<option value='1'>서울</option>"
-    +"<option value='2'>부산</option>"
-    +"<option value='3'>대구</option>"
-    +"<option value='4'>인천</option>"
-    +"<option value='5'>광주</option>"
-    +"<option value='6'>대전</option>"
-    +"<option value='7'>울산</option>"
-    +"<option value='8'>강원</option>"
-    +"<option value='9'>경기</option>"
-    +"<option value='10'>경남</option>"
-    +"<option value='11'>경북</option>"
-    +"<option value='12' >전남</option>"
-    +"<option value='13'>전북</option>"
-    +"<option value='14'>제주</option>"
-    +"<option value='15'>충남</option>"
-    +"<option value='16'>충북</option>"
+    +"<option value='2' disabled>부산</option>"
+    +"<option value='3' disabled>대구</option>"
+    +"<option value='4' disabled>인천</option>"
+    +"<option value='5' disabled>광주</option>"
+    +"<option value='6' disabled>대전</option>"
+    +"<option value='7' disabled>울산</option>"
+    +"<option value='8' disabled>강원</option>"
+    +"<option value='9' disabled>경기</option>"
+    +"<option value='10' disabled>경남</option>"
+    +"<option value='11' disabled>경북</option>"
+    +"<option value='12' disabled>전남</option>"
+    +"<option value='13' disabled>전북</option>"
+    +"<option value='14' disabled>제주</option>"
+    +"<option value='15' disabled>충남</option>"
+    +"<option value='16' disabled>충북</option>"
 
     element.innerHTML=s;
 }
@@ -89,7 +99,118 @@ function cat1_change(key){
     
 }
 
-function printArea(c1,c2){
+function printArea(c1,c2,categori){
+    console.log("전달된카테고리:"+categori)
     alert(cat1_name[c1.value-1]+"/"+cat2_name[c1.value][c2.value-1]+"로 검색합니다");
+    let city_name=cat1_name[c1.value-1]
+    let country_name=cat2_name[c1.value][c2.value-1]
+    
+    getSpot(city_name,country_name,categori)
+}
+
+function getSpot(c1,c2,categori){
+    var jsonData;
+    if(categori=="자연"){
+        jsonData = JSON.parse(JSON.stringify(nature));
+    }
+    else if(categori=="쇼핑"){
+        jsonData = JSON.parse(JSON.stringify(shopping));
+    }
+    else{
+        jsonData = JSON.parse(JSON.stringify(culture));
+    }
+
+    let s="";
+
+    for(i in jsonData){
+        if(jsonData[i].언어=="ko"&&((jsonData[i].주소.includes(c1)&&jsonData[i].주소.includes(c2))||
+        (jsonData[i].신주소.includes(c1)&&jsonData[i].신주소.includes(c2)))){
+            // console.log("테스트으"+jsonData[i])
+            s+="<tr><td>"+jsonData[i].상호명+"</td>"+
+            "<td>"+(jsonData[i].신주소!=""?jsonData[i].신주소:"(구주소)"+jsonData[i].주소)+"</td><td><a id='get_info"+i+"' href='#spot_modal' style='color:black;' data-bs-toggle='modal'>"
+            +"자세히</a></td></tr>"
+        }
+
+        
+    }
+
+    const element=document.getElementById('nature_result');
+    element.innerHTML=s;
+
+    for (i in jsonData){
+        if(jsonData[i].언어=="ko"&&((jsonData[i].주소.includes(c1)&&jsonData[i].주소.includes(c2))||
+        (jsonData[i].신주소.includes(c1)&&jsonData[i].신주소.includes(c2)))){
+            let data=jsonData[i];
+            let id="get_info"+i;
+            console.log(id+"가 가리키는 데이터의 상호명:"+jsonData[i].상호명);
+            document.getElementById(id).addEventListener("click", function(){createModalContent(data)});
+        }
+    }
+}
+
+function createModalContent(data){
+    console.log("상호명: "+data.상호명);
+    let name=data.상호명;
+    let addr=data.신주소!=""?data.신주소:data.주소;
+    let tel=data.전화번호!=""?data.전화번호:"정보 없음";
+    let time=data.운영시간!=""?data.운영시간:"정보 없음";
+    let day=data.운영요일!=""?data.운영요일:"정보 없음";
+    let url=data.웹사이트==""?
+    "사이트 정보 없음":"<a href='"+data.웹사이트+"' target='_blank'>방문하기</a>";
+    let traffic=data.교통정보!=""?data.교통정보:"정보 없음";
+
+    const spot_name=document.getElementById("spot_name");
+    spot_name.innerHTML=name;
+
+    const spot_addr=document.getElementById("spot_addr");
+    spot_addr.innerHTML=addr;
+
+    const spot_tel=document.getElementById("spot_tel");
+    spot_tel.innerHTML=tel;
+
+    const spot_time=document.getElementById("spot_time");
+    spot_time.innerHTML=time;
+
+    const spot_day=document.getElementById("spot_day");
+    spot_day.innerHTML=day;
+
+    const spot_url=document.getElementById("spot_url");
+    spot_url.innerHTML=url;
+
+    const spot_traffic=document.getElementById("spot_traffic");
+    spot_traffic.innerHTML=traffic;
+}
+
+
+
+function showForm_0(){
+    const form=document.getElementById("test")
+    const nature=document.getElementById("search_nature")
+    
+    //search_nature, search_shopping, search_culture 중 하나가 visible이면 검색창 보이기
+    // if(form.style.visibility=="visible"){
+    //     console.log("검색창 숨기기")
+    //     form.style.visibility="collapse"
+    // }
+    // else{
+    //     console.log("검색창 보이기")
+    //     form.style.visibility="visible"
+    // }
+
+    console.log(nature)
+}
+
+function showForm(category){
+    let cat=category;
+    console.log("showForm실행")
+
+    console.log(document.getElementById("search_shopping"))
+    
+    let form_tag="<form class='row justify-content-center'><div class='col-md-5 my-1'><select class='form-select bg-light' name='city' onChange='cat1_change(this.value)' id='city'></select></div><div class='col-md-6 my-1'><select class='form-select bg-light' name='country' id='country'><option>-선택-</option></select></div><!--제출버튼--><div class='col-md-1 my-1'><button class='btn btn-dark' type='button' value='submit' onclick='printArea(city,country,\""+cat+"\")' style='border-radius: 0; opacity: 0.7; width: 100%;'>...</button></div></form><!--검색결과--><div><table class='table table-hover table-light my-2'><thead><tr><th scope='col'>시설명</th><th scope='col'>주소</th><th scope='col'>자세히</th></tr></thead><tbody id='nature_result'></tbody></table></div>";
+    
+    document.getElementById("test").innerHTML=form_tag;
+    console.log(document.getElementById("test"));
+
+    getSelectOption();
 }
 //spot_nature

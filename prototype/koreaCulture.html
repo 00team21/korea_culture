@@ -1,28 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head lang="ko">
-  <title>KoreaCulture</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <head lang="ko">
+        <title>KoreaCulture</title>
+        <meta charset="utf-8">
+        <meta
+            name="viewport"
+            content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
 
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script> -->
-  <script type="text/javascript" src="../prototype/js/loadHTML.js"></script>
-</head>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+        <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" ></script>
+        -->
+        <script type="text/javascript" src="../prototype/js/loadHTML.js"></script>
+    </head>
 
-<body>
-    <div data-include-path="header.html"></div>
+    <body>
+        <div class="wrapper" style="">
+            <header style="position: fixed; width: 100%; z-index: 100;">
+                <!--서브헤더-->
+                <div class="subheader">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="left-content">
+                                    <p>공공데이터 해커톤 웹 프로토타입</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row right-icons px-4">
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <a href="#">로그인</a>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>
+                                            <a href="#">회원가입</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--네비게이션-->
+                <nav
+                    class="px-4 navbar navbar-expand-lg navbar-light bg-light"
+                    style="opacity: 0.9;">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">로고</a>
+                        <!--축소페이지 네비 토글-->
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarColor03"
+                            aria-controls="navbarColor03"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="bi bi-list"></span>
+                        </button>
 
-  <footer style="background-color: #1f272b; bottom: 0; padding: 100px; text-align: center;">
-    2021 공공데이터 청년인턴
-  </footer>
+                        <!--목차-->
+                        <div class="px-3 collapse navbar-collapse" id="navbarColor03">
+                            <ul class="navbar-nav me-auto">
+                                <li class="nav-item px-1">
+                                    <a class="nav-link active" href="index.html">홈
+                                        <span class="visually-hidden">(current)</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a
+                                        class="nav-link dropdown-toggle"
+                                        data-bs-toggle="dropdown"
+                                        href="#"
+                                        role="button"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
+                                        한국 둘러보기
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="koreaFood.html">한국의 전통음식</a>
+                                        <a class="dropdown-item" href="koreaSpot.html">한국의 장소</a>
+                                        <a class="dropdown-item" href="koreaCulture.html">한국의 전통문화</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#reviewSection">여행후기</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#problemSection">About</a>
+                                </li>
 
+                            </ul>
+                            <form class="d-flex">
+                                <input class="form-control me-sm-2" type="text" placeholder="통합 검색...">
+                                <button
+                                    class="btn btn-secondary my-2 my-sm-0"
+                                    style="border-radius: 0;"
+                                    type="submit">...</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </header>
+        </div>
 
+        <footer
+            style="background-color: #1f272b; bottom: 0; padding: 100px; text-align: center;">
+            2021 공공데이터 청년인턴
+        </footer>
 
-  </div>
+    </div>
 
 </body>
 

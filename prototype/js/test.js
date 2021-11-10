@@ -52,10 +52,16 @@ function load_d(){
     if(arr.length>0){
     let s=""
 
+    var arr2=[];
     for (i=0; i<10; i++){
-      j=rand(0,(arr.length-2)/4);
-      for(k=j*4; k<j*4+4; k++){
-        s+=arr[k]+"<br><br>"
+      j=rand(0,(arr.length-1)/4-1);
+      for(k=0; k<10; k++){
+        if(arr2.indexOf(j)===-1){
+          arr2.push(j);
+          for(k=j*4; k<j*4+4; k++){
+            s+=arr[k]+"<br><br>"
+          }
+        }else {i--; break;}
       }
     }
     element.innerHTML=s;
@@ -77,10 +83,16 @@ function load_f(){
     const element=document.getElementById('식품명');
     if(arr.length>0){
     let s=""
+    var arr2=[];
     for (i=0; i<10; i++){
       j=rand(0,(arr.length-1)/4-1);
-      for(k=j*4; k<j*4+4; k++){
-        s+=arr[k]+"<br><br>"
+      for(k=0; k<10; k++){
+        if(arr2.indexOf(j)===-1){
+          arr2.push(j);
+          for(k=j*4; k<j*4+4; k++){
+            s+=arr[k]+"<br><br>"
+          }
+        }else {i--; break;}
       }
     }
     element.innerHTML=s;

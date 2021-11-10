@@ -101,8 +101,8 @@
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0" id="card_nature">
             <a class="unit-1 text-center" data-bs-toggle="collapse" 
-            href="#search_nature" role="button" 
-            aria-expanded="false" aria-controls="search_nature" id="choose_nature">
+            href="#search_collapse1" role="button" 
+            aria-expanded="false" aria-controls="search_collapse1" id="choose_nature">
               <img src="https://cdn.pixabay.com/photo/2016/08/15/06/05/jeju-island-cheonjiyeon-waterfall-1594590_960_720.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
                 <h3 class="unit-1-heading">자연</h3>
@@ -111,8 +111,8 @@
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0" id="card_shopping">
             <a class="unit-1 text-center" data-bs-toggle="collapse" 
-            href="#search_shopping" role="button" 
-            aria-expanded="false" aria-controls="search_shopping" id="choose_shopping">
+            href="#search_collapse2" role="button" 
+            aria-expanded="false" aria-controls="search_collapse2" id="choose_shopping">
               <img src="https://cdn.pixabay.com/photo/2014/04/17/05/18/namdaemun-market-326146_960_720.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
                 <h3 class="unit-1-heading">쇼핑</h3>
@@ -121,8 +121,8 @@
           </div>
           <div class="col-lg-4 mb-4 mb-lg-0">
             <a class="unit-1 text-center" data-bs-toggle="collapse" 
-            href="#search_culture" role="button" 
-            aria-expanded="false" aria-controls="search_culture" id="choose_culture">
+            href="#search_collapse3" role="button" 
+            aria-expanded="false" aria-controls="search_collapse3" id="choose_culture">
               <img src="https://cdn.pixabay.com/photo/2018/12/31/14/45/bukchon-3905234_960_720.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
                 <h3 class="unit-1-heading">문화</h3>
@@ -132,39 +132,46 @@
         </div>
 
         <!--검색영역-->
-        <div class="collapse" id="search_nature" data-bs-parent="#toggle_group" style="color: black;">
+        <div class="collapse" id="search_collapse1" data-bs-parent="#toggle_group" style="color: black;">
           <div class="row justify-content-center my-5">
             <div class="col">
-              <h4 class="text-center section-title">자연에서 찾기</h4> 
+              <h4 class="text-center section-title"><span id="categori" style="color: green;"></span>에서 찾기</h4> 
             </div>
           </div>
           <!--셀렉트폼-->
+          <div id="test1">
+            
+          </div>
           
         </div>
+        <script>
+          
+          
+        </script>
     
-        <div class="collapse" id="search_shopping" data-bs-parent="#toggle_group" style="color: black;">
+        <div class="collapse" id="search_collapse2" data-bs-parent="#toggle_group" style="color: black;">
           <div class="row justify-content-center my-5">
             <div class="col">
               <h4 class="text-center section-title">쇼핑에서 찾기</h4> 
             </div>
           </div>
+          <div id="test2">
+            
+          </div>
         </div>
     
-        <div class="collapse" id="search_culture" data-bs-parent="#toggle_group" style="color: black;">
+        <div class="collapse" id="search_collapse3" data-bs-parent="#toggle_group" style="color: black;">
           <div class="row justify-content-center my-5">
             <div class="col">
               <h4 class="text-center section-title">문화에서 찾기</h4> 
             </div>
           </div>
-        </div>
-
-        <div id="test">
+          <div id="test3">
             
+          </div>
         </div>
 
-        
       </div>
-
 
       <div class="modal fade" id="spot_modal" tabindex="-1" aria-labelledby="modaltitle" aria-hidden="true">
         <div class="modal-dialog modal-lg opacity-1">

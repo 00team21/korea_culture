@@ -1,10 +1,15 @@
 window.onload = function(){
     const choose1=document.getElementById("choose_nature");
-    choose1.addEventListener("click", function(){console.log("자연");showForm("자연")});
+    choose1.addEventListener("click", function(){showForm("자연")});
     const choose2=document.getElementById("choose_shopping");
-    choose2.addEventListener("click", function(){console.log("쇼핑");showForm("쇼핑")});
+    choose2.addEventListener("click", function(){showForm("쇼핑")});
     const choose3=document.getElementById("choose_culture");
-    choose3.addEventListener("click", function(){console.log("문화");showForm("문화")});
+    choose3.addEventListener("click", function(){showForm("문화")});
+
+    // var myCollapse = document.getElementById('search_collapse')
+    // // var clicked=bootstrap.Collapse.getInstance(myCollapse)
+    // myCollapse.addEventListener("show.bs.collapse",function(e){console.log("트리거");console.log(e)})
+    // myCollapse.addEventListener("hide.bs.collapse",function(){alert('collapse toggled off')})
 }
 
 function getSelectOption(){
@@ -204,12 +209,45 @@ function showForm(category){
     let cat=category;
     console.log("showForm실행")
 
-    console.log(document.getElementById("search_shopping"))
+    // console.log(document.getElementById("search_shopping"))
     
     let form_tag="<form class='row justify-content-center'><div class='col-md-5 my-1'><select class='form-select bg-light' name='city' onChange='cat1_change(this.value)' id='city'></select></div><div class='col-md-6 my-1'><select class='form-select bg-light' name='country' id='country'><option>-선택-</option></select></div><!--제출버튼--><div class='col-md-1 my-1'><button class='btn btn-dark' type='button' value='submit' onclick='printArea(city,country,\""+cat+"\")' style='border-radius: 0; opacity: 0.7; width: 100%;'>...</button></div></form><!--검색결과--><div><table class='table table-hover table-light my-2'><thead><tr><th scope='col'>시설명</th><th scope='col'>주소</th><th scope='col'>자세히</th></tr></thead><tbody id='nature_result'></tbody></table></div>";
     
-    document.getElementById("test").innerHTML=form_tag;
-    console.log(document.getElementById("test"));
+    if(cat=="자연"){
+        // if(document.getElementById("test2")!=null) document.getElementById("test2").remove();
+        // if(document.getElementById("test3")!=null) document.getElementById("test3").remove();
+        document.getElementById("test1").innerHTML=form_tag;
+        console.log(document.getElementById("test1"));
+        while(document.getElementById("test2").hasChildNodes()){
+            document.getElementById("test2").removeChild(document.getElementById("test2").firstChild)
+        }
+        while(document.getElementById("test3").hasChildNodes()){
+            document.getElementById("test3").removeChild(document.getElementById("test3").firstChild)
+        }
+    }
+    else if(cat=="쇼핑"){
+        document.getElementById("test2").innerHTML=form_tag;
+        console.log(document.getElementById("test2"));
+        while(document.getElementById("test1").hasChildNodes()){
+            document.getElementById("test1").removeChild(document.getElementById("test1").firstChild)
+        }
+        while(document.getElementById("test3").hasChildNodes()){
+            document.getElementById("test3").removeChild(document.getElementById("test3").firstChild)
+        }
+    }
+    if(cat=="문화"){
+        document.getElementById("test3").innerHTML=form_tag;
+        console.log(document.getElementById("test3"));
+        while(document.getElementById("test1").hasChildNodes()){
+            document.getElementById("test1").removeChild(document.getElementById("test1").firstChild)
+        }
+        while(document.getElementById("test2").hasChildNodes()){
+            document.getElementById("test2").removeChild(document.getElementById("test2").firstChild)
+        }
+    }
+    
+
+    document.getElementById("categori").innerHTML=cat
 
     getSelectOption();
 }

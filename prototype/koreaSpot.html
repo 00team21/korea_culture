@@ -15,6 +15,7 @@
   <script type="text/javascript" src="../prototype/json/서울시 관광 자연.json"></script>
   <script type="text/javascript" src="../prototype/json/서울시 관광 문화.json"></script>
   <script type="text/javascript" src="../prototype/json/서울시 관광 쇼핑.json"></script>
+  <script type="text/javascript" src="../prototype/json/서울시 관광 명소.json"></script>
 </head>
 
 <body class="bg-gra">
@@ -99,7 +100,7 @@
       <div class="container" id="toggle_group">
         <!--카테고리 선택-->
         <div class="row">
-          <div class="col-lg-4 mb-4 mb-lg-0" id="card_nature">
+          <div class="col-lg-3 mb-4 mb-lg-0" id="card_nature">
             <a class="unit-1 text-center" data-bs-toggle="collapse" 
             href="#search_collapse1" role="button" 
             aria-expanded="false" aria-controls="search_collapse1" id="choose_nature">
@@ -109,7 +110,7 @@
               </div>
             </a>
           </div>
-          <div class="col-lg-4 mb-4 mb-lg-0" id="card_shopping">
+          <div class="col-lg-3 mb-4 mb-lg-0" id="card_shopping">
             <a class="unit-1 text-center" data-bs-toggle="collapse" 
             href="#search_collapse2" role="button" 
             aria-expanded="false" aria-controls="search_collapse2" id="choose_shopping">
@@ -119,13 +120,23 @@
               </div>
             </a>
           </div>
-          <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="col-lg-3 mb-4 mb-lg-0">
             <a class="unit-1 text-center" data-bs-toggle="collapse" 
             href="#search_collapse3" role="button" 
             aria-expanded="false" aria-controls="search_collapse3" id="choose_culture">
-              <img src="https://cdn.pixabay.com/photo/2018/12/31/14/45/bukchon-3905234_960_720.jpg" alt="Image" class="img-fluid">
+              <img src="https://cdn.pixabay.com/photo/2018/10/30/03/15/books-3782657_960_720.jpg" alt="Image" class="img-fluid">
               <div class="unit-1-text">
                 <h3 class="unit-1-heading">문화</h3>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-3 mb-4 mb-lg-0">
+            <a class="unit-1 text-center" data-bs-toggle="collapse" 
+            href="#search_collapse4" role="button" 
+            aria-expanded="false" aria-controls="search_collapse4" id="choose_hotspot">
+              <img src="https://cdn.pixabay.com/photo/2014/06/05/04/53/namsan-362538_960_720.jpg" alt="Image" class="img-fluid">
+              <div class="unit-1-text">
+                <h3 class="unit-1-heading">관광 명소</h3>
               </div>
             </a>
           </div>
@@ -135,14 +146,12 @@
         <div class="collapse" id="search_collapse1" data-bs-parent="#toggle_group" style="color: black;">
           <div class="row justify-content-center my-5">
             <div class="col">
-              <h4 class="text-center section-title"><span id="categori" style="color: green;"></span>에서 찾기</h4> 
+              <h4 class="text-center section-title"><span style="color: green;">자연</span>에서 찾기</h4> 
             </div>
           </div>
           <!--셀렉트폼-->
           <div id="test1">
-            
           </div>
-          
         </div>
         <script>
           
@@ -152,22 +161,30 @@
         <div class="collapse" id="search_collapse2" data-bs-parent="#toggle_group" style="color: black;">
           <div class="row justify-content-center my-5">
             <div class="col">
-              <h4 class="text-center section-title">쇼핑에서 찾기</h4> 
+              <h4 class="text-center section-title"><span style="color: green;">쇼핑</span>에서 찾기</h4> 
             </div>
           </div>
           <div id="test2">
-            
           </div>
         </div>
     
         <div class="collapse" id="search_collapse3" data-bs-parent="#toggle_group" style="color: black;">
           <div class="row justify-content-center my-5">
             <div class="col">
-              <h4 class="text-center section-title">문화에서 찾기</h4> 
+              <h4 class="text-center section-title"><span style="color: green;">문화</span>에서 찾기</h4> 
             </div>
           </div>
           <div id="test3">
-            
+          </div>
+        </div>
+
+        <div class="collapse" id="search_collapse4" data-bs-parent="#toggle_group" style="color: black;">
+          <div class="row justify-content-center my-5">
+            <div class="col">
+              <h4 class="text-center section-title"><span style="color: green;">관광 명소</span>에서 찾기</h4> 
+            </div>
+          </div>
+          <div id="test4">
           </div>
         </div>
 

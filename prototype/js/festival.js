@@ -116,7 +116,7 @@ function getFestivalDate(d1){
                 +"자세히</a></td></tr>"
     }
   }
-  const element=document.getElementById('result');
+  const element=document.getElementById('result2');
   if(s.length>0){
     element.innerHTML=s;
   }
@@ -152,7 +152,7 @@ function getFestivalRegion(c1,c2){
                 +"자세히</a></td></tr>"
     }
   }
-  const element=document.getElementById('result');
+  const element=document.getElementById('result1');
   if(s.length>0){
     element.innerHTML=s;
   }
@@ -174,8 +174,9 @@ function getFestivalRegion(c1,c2){
 }
 
 function showForm(){
-  let form_tag="<form class='row justify-content-center'><div class='col-md-5 my-1'><select class='form-select bg-light' name='city' onChange='cat1_change(this.value)' id='city'></select></div><div class='col-md-6 my-1'><select class='form-select bg-light' name='country' id='country'><option>-선택-</option></select></div><!--제출버튼--><div class='col-md-1 my-1'><button class='btn btn-dark' type='button' value='submit' onclick='printArea(city,country)' style='border-radius: 0; opacity: 0.7; width: 100%;'>...</button></div></form><!--검색결과--><div><table class='table table-hover table-light my-2'><thead><tr><th scope='col'>축제명</th><th scope='col'>개최장소</th><th scope='col'>개최기간</th><th scope='col'>자세히</th></tr></thead><tbody id='result'></tbody></table></div>";
+  let form_tag="<form class='row justify-content-center'><div class='col-md-5 my-1'><select class='form-select bg-light' name='city' onChange='cat1_change(this.value)' id='city'></select></div><div class='col-md-6 my-1'><select class='form-select bg-light' name='country' id='country'><option>-선택-</option></select></div><!--제출버튼--><div class='col-md-1 my-1'><button class='btn btn-dark' type='button' value='submit' onclick='printArea(city,country)' style='border-radius: 0; opacity: 0.7; width: 100%;'>...</button></div></form><!--검색결과--><div><table class='table table-hover table-light my-2'><thead><tr><th scope='col'>축제명</th><th scope='col'>개최장소</th><th scope='col'>개최기간</th><th scope='col'>자세히</th></tr></thead><tbody id='result1'></tbody></table></div>";
   document.getElementById("test1").innerHTML=form_tag;
+  removeChildrenAll("result2")
   getSelectOption();
 }
 
@@ -205,4 +206,11 @@ function createModalContent(data,categori){
 
   const fest_info=document.getElementById("fest_info");
   fest_info.innerHTML=info;
+}
+
+function removeChildrenAll(id){
+  const element=document.getElementById(id)
+  while(element.hasChildNodes()){
+      element.removeChild(element.firstChild)
+  }
 }

@@ -8,10 +8,6 @@ window.onload = function(){
     const choose4=document.getElementById("choose_hotspot");
     choose4.addEventListener("click", function(){showForm("관광명소")});
 
-    // var myCollapse = document.getElementById('search_collapse')
-    // // var clicked=bootstrap.Collapse.getInstance(myCollapse)
-    // myCollapse.addEventListener("show.bs.collapse",function(e){console.log("트리거");console.log(e)})
-    // myCollapse.addEventListener("hide.bs.collapse",function(){alert('collapse toggled off')})
 }
 
 function getSelectOption(){
@@ -108,7 +104,7 @@ function cat1_change(key){
 
 function printArea(c1,c2,categori){
     console.log("전달된카테고리:"+categori)
-    alert(categori+"에서 "+cat1_name[c1.value-1]+"/"+cat2_name[c1.value][c2.value-1]+"로 검색합니다");
+    // alert(categori+"에서 "+cat1_name[c1.value-1]+"/"+cat2_name[c1.value][c2.value-1]+"로 검색합니다");
     let city_name=cat1_name[c1.value-1]
     let country_name=cat2_name[c1.value][c2.value-1]
     
@@ -154,7 +150,14 @@ function getSpot(c1,c2,categori){
     }
 
     const element=document.getElementById('result');
-    element.innerHTML=s;
+    if(s.length>0){
+        element.innerHTML=s;
+    }
+        
+    else{
+        alert("검색결과 없음")
+        element.innerHTML=s;
+    }
 
     for (i in jsonData){
         if(categori!="관광명소"){
@@ -184,10 +187,10 @@ function createModalContent(data,categori){
     let addr=(categori!="관광명소")?(data.신주소!=""&&data.신주소!=null?data.신주소:data.주소):(data.new_address!=""&&data.new_address!=null?data.new_address:data.address);
     let tel=(categori!="관광명소")?(data.전화번호!=""&&data.전화번호!=null?data.전화번호:"번호 정보 없음"):(data.cmmn_telno!=""&&data.cmmn_telno!=null?data.cmmn_telno:"번호 정보 없음");
     let time=(categori!="관광명소")?(data.운영시간!=""&&data.운영시간!=null?data.운영시간:"운영시간 정보 없음"):(data.cmmn_use_time!=""&&data.cmmn_use_time!=null?data.cmmn_use_time:"운영시간 정보 없음");
-    let day=(categori!="관광명소")?(data.운영요일!=""&&data.운영요일!=null?data.운영요일:"정보 없음"):(data.cmmn_bsnde!=""&&data.cmmn_bsnde!=null?data.cmmn_bsnde:"정보 없음");
+    let day=(categori!="관광명소")?(data.운영요일!=""&&data.운영요일!=null?data.운영요일:"운영요일 정보 없음"):(data.cmmn_bsnde!=""&&data.cmmn_bsnde!=null?data.cmmn_bsnde:"정보 없음");
     let url=(categori!="관광명소")?
-    (data.웹사이트==""&&data.웹사이트!=null?"사이트 정보 없음":"<a href='"+data.웹사이트+"' target='_blank'>방문하기</a>"):
-    (data.cmmn_hmpg_url==""&&data.cmmn_hmpg_url!=null?"사이트 정보 없음":"<a href='"+data.cmmn_hmpg_url+"' target='_blank'>방문하기</a>");
+    (data.웹사이트==""&&data.웹사이트==null?"사이트 정보 없음":"<a href='"+data.웹사이트+"' target='_blank'>방문하기</a>"):
+    (data.cmmn_hmpg_url==""&&data.cmmn_hmpg_url==null?"사이트 정보 없음":"<a href='"+data.cmmn_hmpg_url+"' target='_blank'>방문하기</a>");
     let traffic=(categori!="관광명소")?(data.교통정보!=""&&data.교통정보!=null?data.교통정보:"교통 정보 없음"):(data.subway_info!=""&&data.subway_info!=null?data.subway_info:"교통 정보 없음");
 
     const spot_name=document.getElementById("spot_name");
